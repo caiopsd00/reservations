@@ -11,4 +11,8 @@ urlpatterns = [
     path('app/administrador/descricao/criar', views.descricaoCriar, name='descricaoCriar'),
     path('auth/login/', views.produzindo, name='produzindo'),
     path('auth/cadastro/', views.produzindo, name='produzindo'),
+
+    # API
+    path('cadastroDescricao', views.cadastroDescricao, name='cadastroDescricao'),
+    path('cadastroDiaria', views.cadastroDiaria, name='cadastroDiaria'),
 ]
