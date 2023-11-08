@@ -16,7 +16,9 @@
         </div>
         <div class="mycard">
             <h1>Atualizar descricoes</h1>
-            <form method="post">
+            <form action="{% url 'atualizacaoDescricao' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" id="id" name="id" value="{{ descricoes.id }}">
                 <label for="titulo">Título:</label>
                 <textarea id="titulo" name="titulo" rows="1" cols="50" required></textarea><br>(Anterior: {{ descricoes.titulo }})<br>
         

@@ -15,8 +15,10 @@
             <a href="/auth/cadastro">Cadastro</a>
         </div>
         <div class="mycard">
-            <h1>Dados sobre diaria</h1>
-            <form method="post">
+            <h1>Atualizar diaria</h1>
+            <form action="{% url 'atualizacaoDiaria' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" id="id" name="id" value="{{ diaria.id }}">
                 <label for="dia">Dia:</label>
                 <input type="date" id="dia" name="dia" required>  (Anterior: {{ diaria.dia }})<br>
             

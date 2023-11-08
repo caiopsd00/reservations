@@ -16,7 +16,7 @@
         </div>
         <div class="mycard">
             <h1>Administrador</h1>
-            <h1>Diarias</h1>
+            <h2>Diarias</h2>
             <ul>
                 {% for d in diarias %}
                 <li onclick="window.location = 'diaria/{{ d.id }}'">{{ d.dia }} | 
@@ -26,14 +26,14 @@
                         Não disponivel
                     {% endif %}
                     | R${{ d.preco }} </li>
-                {% endfor %}
+                {% endfor %} <br>
                 <button onclick="window.location = 'diaria/criar'">Criar diaria</button>
             </ul>
-            <h1>Informações</h1>
+            <h2>Informações</h2>
             <ul>
                 {% for des in descricoes %}
                 <li onclick="window.location = 'descricao/{{ des.id }}'">{{ des.titulo }}</li>
-                {% endfor %}
+                {% endfor %} <br>
                 <button onclick="window.location = 'descricao/criar'">Criar descrição</button>
             </ul>
         </div>

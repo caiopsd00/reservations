@@ -102,3 +102,66 @@ def cadastroDiaria(request):
             'descricoes': Descricoes.objects.all().values()
         }
         return HttpResponse(template.render(context, request))
+
+
+def atualizacaoDiaria(request):
+    if request.method == "GET":
+        template = loader.get_template('administrador.html')
+        context = {
+            'diarias': Diaria.objects.all().values(),
+            'descricoes': Descricoes.objects.all().values()
+        }
+        return HttpResponse(template.render(context, request))
+    else:
+        id = request.POST.get('id')
+        dia = request.POST.get('dia')
+        disponibilidade = request.POST.get('disponibilidade')
+        preco = request.POST.get('preco')
+        diaria_existente = Diaria.objects.filter(id=id).first()
+
+        if diaria_existente:
+            diaria_existente.dia = dia
+            diaria_existente.disponibilidade = disponibilidade == 'on'
+            diaria_existente.preco = preco
+
+            diaria_existente.save()
+
+            template = loader.get_template('administrador.html')
+            context = {
+                'diarias': Diaria.objects.all().values(),
+                'descricoes': Descricoes.objects.all().values()
+            }
+            return HttpResponse(template.render(context, request))
+        else:
+            return HttpResponse('Diaria não existe')
+
+
+def atualizacaoDescricao(request):
+    if request.method == "GET":
+        template = loader.get_template('administrador.html')
+        context = {
+            'diarias': Diaria.objects.all().values(),
+            'descricoes': Descricoes.objects.all().values()
+        }
+        return HttpResponse(template.render(context, request))
+    else:
+        id = request.POST.get('id')
+        titulo = request.POST.get('titulo')
+        descricao = request.POST.get('descricao')
+        descricao_existente = Descricoes.objects.filter(id=id).first()
+
+        if descricao_existente:
+
+            descricao_existente.titulo = titulo
+            descricao_existente.descricao = descricao
+
+            descricao_existente.save()
+
+            template = loader.get_template('administrador.html')
+            context = {
+                'diarias': Diaria.objects.all().values(),
+                'descricoes': Descricoes.objects.all().values()
+            }
+            return HttpResponse(template.render(context, request))
+        else:
+            return HttpResponse('Descrição não existe')

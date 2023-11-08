@@ -15,4 +15,6 @@ urlpatterns = [
     # API
     path('cadastroDescricao', views.cadastroDescricao, name='cadastroDescricao'),
     path('cadastroDiaria', views.cadastroDiaria, name='cadastroDiaria'),
+    path('atualizacaoDiaria', views.atualizacaoDiaria, name='atualizacaoDiaria'),
+    path('atualizacaoDescricao', views.atualizacaoDescricao, name='atualizacaoDescricao'),
 ]
