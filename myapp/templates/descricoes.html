@@ -4,7 +4,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="{% static 'mystyles.css' %}"> 
-        <title>Reservas ADM - Diaria</title>
+        <title>Reservas ADM - Descricoes</title>
     </head>
     <body>
         <div class="topnav">
@@ -15,16 +15,9 @@
             <a href="/auth/cadastro">Cadastro</a>
         </div>
         <div class="mycard">
-            <h1>Dados sobre diaria</h1>
-            <p><em>Dia:</em> {{ diaria.dia }} </p>
-            <p><em>                    
-                {% if diaria.disponibilidade %}
-                    Disponivel
-                {% else %}
-                    Não disponivel
-                {% endif %}
-            </em></p>
-            <p><em>Preço:</em> {{ diaria.preco }}</p>
+            <h1>Dados sobre descricoes</h1>
+            <p><em>Titulo:</em> {{ descricoes.titulo }} </p>
+            <p><em>Detalhes:</em> {{ descricoes.descricao }}</p>
         </div>
 
         <p><center>Volte para <a href="/app/administrador">Administrador</a></center></p>

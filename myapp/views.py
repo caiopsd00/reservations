@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 from django.template import loader
+from .models import Diaria
+from .models import Descricoes
 
 def produzindo(request):
     template = loader.get_template('produzindo.html')
@@ -20,41 +22,23 @@ def home(request):
 def administrador(request):
     template = loader.get_template('administrador.html')
     context = {
-        'diarias': [
-            {
-                "id": 1,
-                "dia": "07/11/2023",
-                "disponibilidade": "Disponivel",
-                "preco": 300
-            },
-            {
-                "id": 2,
-                "dia": "08/11/2023",
-                "disponibilidade": "Ocupado",
-                "preco": 300
-            },
-        ]
+        'diarias': Diaria.objects.all().values(),
+        'descricoes': Descricoes.objects.all().values()
     }
     return HttpResponse(template.render(context, request))
 
 def diaria(request, id):    
-    diarias = [
-            {
-                "id": 1,
-                "dia": "07/11/2023",
-                "disponibilidade": "Disponivel",
-                "preco": 300
-            },
-            {
-                "id": 2,
-                "dia": "08/11/2023",
-                "disponibilidade": "Ocupado",
-                "preco": 300
-            },
-        ]
-    diaria = diarias[id-1]
+    diaria = Diaria.objects.get(id=id)
     template = loader.get_template('diaria.html')
     context = {
         'diaria': diaria,
+    }
+    return HttpResponse(template.render(context, request))
+
+def descricao(request, id):    
+    descricoes = Descricoes.objects.get(id=id)
+    template = loader.get_template('descricoes.html')
+    context = {
+        'descricoes': descricoes,
     }
     return HttpResponse(template.render(context, request))
