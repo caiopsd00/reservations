@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 from django.template import loader
 from .models import Diaria
 from .models import Descricoes
@@ -35,6 +36,10 @@ def diaria(request, id):
     }
     return HttpResponse(template.render(context, request))
 
+def diariaCriar(request):    
+    return render(request, 'diariaCriar.html')
+
+    
 def descricao(request, id):    
     descricoes = Descricoes.objects.get(id=id)
     template = loader.get_template('descricoes.html')
@@ -42,3 +47,6 @@ def descricao(request, id):
         'descricoes': descricoes,
     }
     return HttpResponse(template.render(context, request))
+
+def descricaoCriar(request):    
+    return render(request, 'descricaoCriar.html')

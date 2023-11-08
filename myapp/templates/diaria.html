@@ -16,15 +16,23 @@
         </div>
         <div class="mycard">
             <h1>Dados sobre diaria</h1>
-            <p><em>Dia:</em> {{ diaria.dia }} </p>
-            <p><em>                    
+            <form method="post">
+                <label for="dia">Dia:</label>
+                <input type="date" id="dia" name="dia" required>  (Anterior: {{ diaria.dia }})<br>
+            
+                <label for="disponivel">Disponibilidade:</label>
+                <input type="checkbox" id="disponivel" name="disponivel" >   (Anterior:               
                 {% if diaria.disponibilidade %}
                     Disponivel
                 {% else %}
                     Não disponivel
-                {% endif %}
-            </em></p>
-            <p><em>Preço:</em> {{ diaria.preco }}</p>
+                {% endif %})<br>
+            
+                <label for="preco">Preço (em Reais):</label>
+                <input type="number" step="0.01" id="preco" name="preco" required>  (Anterior: R${{ diaria.preco }})<br>
+            
+                <input type="submit" value="Atualizar">
+            </form>
         </div>
 
         <p><center>Volte para <a href="/app/administrador">Administrador</a></center></p>

@@ -27,12 +27,14 @@
                     {% endif %}
                     | R${{ d.preco }} </li>
                 {% endfor %}
+                <button onclick="window.location = 'diaria/criar'">Criar diaria</button>
             </ul>
             <h1>Informações</h1>
             <ul>
                 {% for des in descricoes %}
                 <li onclick="window.location = 'descricao/{{ des.id }}'">{{ des.titulo }}</li>
                 {% endfor %}
+                <button onclick="window.location = 'descricao/criar'">Criar descrição</button>
             </ul>
         </div>
     </body>
