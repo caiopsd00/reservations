@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'mystyles.css' %}"> 
+        <title>Reservas ADM - Diaria</title>
+    </head>
+    <body>
+        <div class="topnav">
+            <a href="/home">HOME</a> ====
+            <a href="/app/reservas">Reservar</a> |
+            <a href="/app/administrador">Admin</a> |
+            <a href="/auth/login">Login</a> |
+            <a href="/auth/cadastro">Cadastro</a>
+        </div>
+        <div class="mycard">
+            <h1>Dados sobre diaria</h1>
+            <p><em>Dia:</em> {{ diaria.dia }} </p>
+            <p><em>Disponivel:</em> {{ diaria.disponibilidade }}</p>
+            <p><em>Preço:</em> {{ diaria.preco }}</p>
+        </div>
+
+        <p><center>Volte para <a href="/app/administrador">Diarias</a></center></p>
+        
+    </body>
+</html>

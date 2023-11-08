@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'mystyles.css' %}"> 
+        <title>Portal Biblioteca</title>
+    </head>
+    <body>
+        <div class="topnav">
+            <a href="/home">HOME</a> ====
+            <a href="/app/reservas">Reservar</a> |
+            <a href="/app/administrador">Admin</a> |
+            <a href="/auth/login">Login</a> |
+            <a href="/auth/cadastro">Cadastro</a>
+        </div>
+        <div class="main">
+            <h1>Sistemas de reserva  {{ nome }} -  {{ cidade }}
+            </h1>
+            <img src="{% static 'domo.png' %}" alt="domo" width="550" height="700">
+        </div>
+    </body>
+</html>

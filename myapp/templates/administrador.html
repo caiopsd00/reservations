@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'mystyles.css' %}"> 
+        <title>Reservas - Administrador</title>
+    </head>
+    <body>
+        <div class="topnav">
+            <a href="/home">HOME</a> ====
+            <a href="/app/reservas">Reservar</a> |
+            <a href="/app/administrador">Admin</a> |
+            <a href="/auth/login">Login</a> |
+            <a href="/auth/cadastro">Cadastro</a>
+        </div>
+        <div class="mycard">
+            <h1>Administrador</h1>
+            <ul>
+                {% for d in diarias %}
+                <li onclick="window.location = 'diaria/{{ d.id }}'">{{ d.dia }} | {{ d.disponibilidade }} | {{ d.preco }} </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </body>
+</html>
